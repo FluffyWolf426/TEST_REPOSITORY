@@ -88,7 +88,7 @@ header {
 
 svg,
 header img {
-    max-width: 2rem;
+    max-width: 20rem;
 }
 
 /** first tier **/
@@ -107,6 +107,10 @@ header img {
 .first-link img,
 a span {
     display: none;
+}
+section {
+    max-width: 60rem;
+    margin: 0;
 }
 
 nav {
@@ -226,6 +230,4 @@ nav li a:focus {
     a span {
         display: inline-block;
     }
-
-
 }

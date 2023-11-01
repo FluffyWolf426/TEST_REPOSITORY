@@ -54,7 +54,7 @@ header nav {
 
 /* Step 3: Create a special class that will show the menu. This class exists only in the CSS file for now, we don't add it in the markup. The javascript will do that for us, Let's go and do that in the js file. */
 .show-nav {
-    max-height: 19rem;
+    max-height: 40rem;
 }
 
 
