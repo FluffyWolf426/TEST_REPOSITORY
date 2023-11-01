@@ -1,0 +1,112 @@
+body {
+    background-color: #192f5e;
+    font-family: sans-serif;
+}
+
+/* *************** header & nav ************** */
+/* Step 1: Default state. Starting with the mobile view first, style and layout the nav links for how they look when visable */
+
+header {
+    background-color: #fff;
+    padding: 2%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    color: #3f3f3f;
+    text-decoration: none;
+}
+
+/* this will be the event button but for now style it */
+.toggle-icon span {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    border-radius: 100px;
+    background-color: #3f3f3f;
+    display: block;
+}
+
+.menu-links li {
+    /* the extra height from the line-height makes this easier to click on mobile screens. Link areas should be large enough to click with a big fat thumb */
+    line-height: 40px;
+    text-align: center;
+}
+
+.menu-links a {
+    /* this allows the clickable area to take up the full width and height of the li element instead of just having the text itself clickable */
+    display: block;
+}
+
+/* Step 2: Now lets hide the menu links. Once hidden that's the defautl state - how the screen looks when first loaded */
+
+header nav {
+    /* we can hide this nav with display: none, however, we can't apply trasition properties to display: none & display: block. We can apply transition properties to height values but it will only work with max-height. Note, you could also use visability and opactity as we did with the dropdown menu */
+    max-height: 0;
+    overflow: hidden;
+    /* the transition property will make this change happen smoothly */
+    transition: max-height .7s ease-in-out
+}
+
+/* Step 3: Create a special class that will show the menu. This class exists only in the CSS file for now, we don't add it in the markup. The javascript will do that for us, Let's go and do that in the js file. */
+.show-nav {
+    max-height: 19rem;
+}
+
+
+/* ************ section ************ */
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #d5e294;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d5e294;
+    font-size: 1.777rem;
+    width: 35%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #fff;
+    font-size: 3.157rem;
+}
+
+/* Step 4: Once the screen is wide enough to show all the menu links we'll remove the hamburger/toggle icon and simply show the menu links when the page loads. We will have to overwrite some styling inside the media query to layout them out differently on a wider screen. */
+
+@media only screen and (min-width: 600px) {
+    /* we don't need the icon anymore, so hide it */
+    .toggle-icon {
+        display: none;
+    }
+
+    header nav {
+        /* we want to see the nav by default, so make sure it's shown */
+        max-height: 76px;
+    }
+
+    .menu-links,
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-links li {
+        padding: 0 5px;
+        margin: 0 3px;
+    }
+
+    .menu-links li:hover {
+        /* mobile screens don't need hover states, add them here instead */
+        background-color: #dde7e9;
+        border-radius: 8px;
+    }
+}
