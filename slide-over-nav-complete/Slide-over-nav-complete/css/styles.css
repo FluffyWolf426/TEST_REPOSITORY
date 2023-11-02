@@ -1,0 +1,121 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* The idea here is that because CSS is good
+at controlling style, we encapsulate our
+element view states with css classes. I find
+that a good way to work is to define a
+"default" state using a given element class
+name, and then an alternate state using an
+additional class name; usually loosely describing
+the state in the class name itself.
+
+For instance, say we have a navigation element,
+and we want to control whether or not it is
+shown on the screen via a button click. We
+decide that by default the main navigation should
+be either hidden or moved off the canvas, and then revealed only if
+the user chooses to reveal it.
+
+We can take care of the visuals in CSS, but for the
+button interaction we will need some javascript
+(which I will write in a separate file).
+
+First that navigation element needs to have a default 
+state. We'll keep the CSS exceedingly simple, but I'm
+sure you can imagine that you might want to style
+your navigation in other ways. */
+
+
+/* default state: style nav and then move it off to the left of the canvas */
+.sliding-nav {
+    position: absolute;
+    display: flex;
+}
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    background: #000;
+}
+
+li {
+    padding: 10px 20px;
+}
+
+li:hover {
+    background: darkslategrey;
+}
+
+li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* this will be our event trigger, but for now style it */
+.toggle-nav {
+    transform: rotate(90deg);
+    transform-origin: 17px 17px;
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    height: 35px;
+    border: none;
+}
+
+/* Removes the blue outine in Chrome */
+.toggle-nav:focus {
+    outline: 0;
+}
+
+/* find the width of the element and move it that far to the left to be off the canvas */
+/* in this case, we just want to move the main-nav off canvas, not the toggle-nav */
+.sliding-nav {
+    left: -98px;
+    transition: left 1s ease-in-out;
+}
+
+/* That's our default state done, now we'll add an active state (class) via javascript.
+Once that's done we can set the left property of the element to 0, positioning it back on
+the screen. Adding animation makes for a smoother transition between states*/
+
+.sliding-nav.is-active {
+    left: 0%;
+    transition: left 1s ease-in-out;
+}
+
