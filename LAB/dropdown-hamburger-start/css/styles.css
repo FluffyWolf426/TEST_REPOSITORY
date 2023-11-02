@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'milky_honeyregular';
+    src: url('milky_honey-webfont.woff2') format('woff2'),
+         url('milky_honey-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    --navy: #0c263e;
+    --dk-navy: #071629;
+    --orange: #e75a2f;
+    --dk-orange: #bc4123;
+    --honey-font: 'milky_honeyregular', cursive;
+    --roboto: 'Roboto', sans-serif;
+}
+
+/* Utility Classes */
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inner-container {
+    margin: auto;
+    max-width: 40rem;
+    /* padding: 3rem 1rem; */
+}
+
+
+/* Typography */
+
+body {
+    background-color: #fff;
+    color: var(--dk-navy);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+h1 a {
+    font-family: var(--honey-font);
+    font-weight: normal;
+}
+
+.btn {
+    background: linear-gradient(270deg, rgba(231,90,47,1) 0%, rgba(188,65,35,1) 100%);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--dk-navy);
+    padding: 1rem;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1rem;
+    /** having the header scroll with you */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.toggle-btn {
+    outline: none;
+    border: none;
+    background: unset; /** or transparent **/
+    color: #fff;
+    fill: #fff;
+    text-transform: lowercase;
+}
+
+.toggle-btn:hover svg path,
+.toggle-btn:hover p {
+    color: var(--orange);
+    fill: var(--orange);
+}
+
+svg,
+header img {
+    max-width: 20rem;
+}
+
+/** first tier **/
+.first-link {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.first-link img {
+    width: 1rem;
+    margin-left: 1rem;
+}
+
+/** hide the arrow icons **/
+.first-link img,
+a span {
+    display: none;
+}
+section {
+    max-width: 60rem;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    background-color: var(--dk-navy);
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+.show-nav {
+    max-height: 100vh; /** or unset **/
+    overflow: visible;
+    border-bottom: 1px solid #fff;
+}
+
+nav li {
+    /* margin: 1rem 0; */
+    line-height: 2rem;
+}
+
+nav li a {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.second-tier > li > a {
+    padding-left: 3rem;
+}
+
+.third-tier > li > a {
+    padding-left: 6rem;
+}
+
+nav li a:hover {
+    color: var(--orange);
+}
+
+nav li a:focus {
+    background-color: var(--dk-orange);
+    /* outline: none; */
+    color: white;   
+}
+
+@media screen and (min-width: 60rem) {
+    .toggle-btn {
+        display: none;
+    }
+
+    .wide-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    header div.inner-container {
+        max-width: 60rem;
+    }
+    nav {
+        position: static;
+        max-height: unset;
+        overflow: visible;
+        white-space: nowrap;
+        justify-content: flex-end;
+    }
+
+    .main-menu {
+        display: flex;
+
+    }
+
+    .main-menu li { 
+        position: relative;
+    }
+    .main-menu > li {
+        margin: 1rem;
+    }
+
+    .second-tier,
+    .third-tier {
+        min-width: 100%;
+        position: absolute;
+        background-color: var(--dk-navy);
+        padding: 1rem;
+        visibility: hidden;
+    }
+
+    .second-tier {
+        left: 0;
+        text-align: right;
+    }
+
+    .third-tier {
+        left: 100%;
+        text-align: left;
+        top: -1.5rem;
+    }
+
+    .second-tier > li > a {
+        padding-left: 1rem;
+    }
+    
+    .third-tier > li > a {
+        padding-left: 1rem;
+    }
+
+    .main-menu li:hover > .second-tier,
+    .second-tier li:hover > .third-tier,
+    .main-menu li:focus-within > .second-tier,
+    .main-menu li > .second-tier:focus,
+    .second-tier li:focus-within > .third-tier,
+    .second-tier li > .third-tier:focus {
+        visibility: visible;
+    }
+
+    .first-link img,
+    a span {
+        display: inline-block;
+    }
+}
