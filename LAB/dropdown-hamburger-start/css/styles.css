@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'milky_honeyregular';
     src: url('milky_honey-webfont.woff2') format('woff2'),
          url('milky_honey-webfont.woff') format('woff');
@@ -16,7 +16,7 @@
     --roboto: 'Roboto', sans-serif;
 }
 
-/* Utility Classes */
+
 .flex-container {
     display: flex;
     align-items: center;
@@ -26,11 +26,10 @@
 .inner-container {
     margin: auto;
     max-width: 40rem;
-    /* padding: 3rem 1rem; */
+    
 }
 
 
-/* Typography */
 
 body {
     background-color: #fff;
@@ -60,13 +59,13 @@ h1 a {
     box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Header & Navigation */
+
 header {
     background-color: var(--dk-navy);
     padding: 1rem;
     border-bottom: 1px solid #fff;
     margin-bottom: 1rem;
-    /** having the header scroll with you */
+   
     position: sticky;
     top: 0;
     z-index: 10;
@@ -74,7 +73,7 @@ header {
 .toggle-btn {
     outline: none;
     border: none;
-    background: unset; /** or transparent **/
+    background: unset; 
     color: #fff;
     fill: #fff;
     text-transform: lowercase;
@@ -91,7 +90,7 @@ header img {
     max-width: 20rem;
 }
 
-/** first tier **/
+
 .first-link {
     font-size: 1.2rem;
     display: flex;
@@ -103,7 +102,7 @@ header img {
     margin-left: 1rem;
 }
 
-/** hide the arrow icons **/
+
 .first-link img,
 a span {
     display: none;
@@ -124,13 +123,13 @@ nav {
 }
 
 .show-nav {
-    max-height: 100vh; /** or unset **/
+    max-height: 100vh;
     overflow: visible;
     border-bottom: 1px solid #fff;
 }
 
 nav li {
-    /* margin: 1rem 0; */
+    
     line-height: 2rem;
 }
 
@@ -153,7 +152,7 @@ nav li a:hover {
 
 nav li a:focus {
     background-color: var(--dk-orange);
-    /* outline: none; */
+  
     color: white;   
 }
 
@@ -230,4 +229,119 @@ nav li a:focus {
     a span {
         display: inline-block;
     }
+} */
+
+
+
+
+
+/* Colour Palette 
+    
+    off-white  #FAFAFA
+    dark grey  #263238
+    hot pink   #EC407A
+    yellow     #FDD835
+    green      #8BC34A
+    blue       #4A8BC3 
+*/
+
+:root {
+    --off-white:#FAFAFA;
+    --dk-grey:  #263238;
+    --pink:     #EC407A;
+    --purple:   #824AC3;
+    --yellow:   #FDD835;
+    --green:    #8BC34A;
+    --blue:     #4A8BC3;
 }
+
+body {
+    background: var(--off-white);
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Utility Classes */
+
+
+/* toggle */
+.menu-icon span {
+    display: block;
+    width: 4rem;
+    height: 1rem;
+    background-color: var(--pink);
+    cursor: pointer;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    /** set the position to relative to here to allow the 2nd and 3rd span element be positioned to create the 'x' on hover **/
+    position: relative;
+}
+
+.menu-icon p { 
+    text-align: center; 
+    color: var(--off-white);
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: 0.875rem;
+}
+
+
+/** footer **/
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+footer p { 
+    padding: 0.5rem 0;
+}
+
+.first-link img {
+    width: 1rem;
+    margin-left: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container img{
+    max-width: 20rem;
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    background-color: var(--dk-navy);
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+.show-nav {
+    max-height: 100vh; /** or unset **/
+    overflow: visible;
+    border-bottom: 1px solid #fff;
+}
+
+nav li {
+    /* margin: 1rem 0; */
+    line-height: 2rem;
+}
+
+nav li a {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.toggle-btn:hover svg path,
+.toggle-btn:hover p {
+    color: var(--orange);
+    fill: var(--orange);
+}
+
+
+
+
+/* wider menu  */
