@@ -1,0 +1,202 @@
+:root {
+	--blue: #6593A6;
+	--grey: #58595B;
+	--yellow: #F2CF63;
+	--orange: #F2C063;
+	--white: #F2F2F2;
+}
+
+/* Utility Classes */
+
+.container {
+	margin: auto;
+	max-width: 1024px;
+}
+
+.sr-only {
+	left: -9999px;
+	position: absolute;
+	top: -9999px;
+}
+
+/* Typography */
+
+body {
+	background-color: var(--grey);
+	font-family: 'Karla', sans-serif;
+}
+
+h2 {
+	margin-bottom: 1rem;
+}
+
+/* Header */
+
+header {
+	background-color: var(--blue);
+	padding: 1rem;
+}
+
+header img {
+	height: 4rem;
+}
+
+.upper-header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu-toggle {
+	color: var(--white);
+	cursor: pointer;
+	text-align: center;
+}
+
+.menu-toggle svg path {
+	fill: var(--white);
+}
+
+.menu-toggle:hover svg path,
+.menu-toggle:hover p {
+	color: var(--orange);
+	fill: var(--orange);
+	transition: 0.3s all ease-in-out;
+}
+
+/* Search Form */
+
+header form {
+	display: flex;
+	margin: 1.5rem 0 0 0;
+}
+
+input[name="search-bar"] {
+	border: none;
+	border-radius: 0.4rem 0 0 0.4rem;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+header input[type="submit"] {
+	background-color: var(--orange);
+	background-image: url('../img/magnifying-glass.svg');
+	background-position: center;
+	background-size: 80%;
+	background-repeat: no-repeat;
+	border: none;
+	border-radius: 0 0.4rem 0.4rem 0;
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+}
+
+header input[type="submit"]:hover {
+	background-color: var(--yellow);
+}
+
+/* Login Form */
+
+main {
+	padding: 2rem 1rem;
+}
+
+main .container {
+	background-color: var(--white);
+	border-radius: 0.4rem;
+	padding: 2rem 1rem;
+}
+
+main form div {
+	margin-bottom: 1rem;
+}
+
+main form label {
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+main .login {
+	border-bottom: 1px dashed var(--grey);
+	margin-bottom: 2rem;
+	padding-bottom: 2rem;
+}
+
+main .login form {
+	margin-top: 1rem;
+}
+
+.login form input {
+	background-color: #fff;
+	border: 1px solid var(--blue);
+	border-radius: 0.4rem;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+.login form input[type="submit"] {
+	background-color: var(--orange);
+	border: none;
+	cursor: pointer;
+	letter-spacing: 0.1rem;
+	margin-top: 1rem;
+	text-transform: lowercase;
+}
+
+.login form input[type="submit"]:hover {
+	background-color: var(--yellow);
+}
+
+/* If the user fills in this part of the form using autocomplete, the background will be covered up by default browser styles. There is an :atuo-fill pseudo-class that will allow you to override this, but it's not currently supported by Firefox or part of the CSS Working Group specifications (only the HTML Living Standard). */
+
+.login form input[type="email"]:invalid,
+.login form input[type="password"]:invalid {
+	background: url('../img/exclamation.svg') 95% / 1rem no-repeat white;
+}
+
+.login form input[type="email"]:valid,
+.login form input[type="password"]:valid {
+	background: url('../img/check.svg') 95% / 1rem no-repeat white;
+}
+
+/* Sign-Up Area */
+
+.sign-up p {
+	margin-bottom: 1rem;
+}
+
+.sign-up a {
+	background-color: var(--blue);
+	border-radius: 0.4rem;
+	color: #fff;
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 720px) {
+	main .container {
+		display: flex;
+		padding: 2rem 0;
+	}
+
+	main .login {
+		border-bottom: none;
+		border-right: 1px dashed var(--grey);
+		min-width: calc(100% / 3);
+		padding: 2rem;
+	}
+
+	main .sign-up {
+		max-width: 60ch;
+		padding: 2rem;
+	}
+}
+
+
+
+

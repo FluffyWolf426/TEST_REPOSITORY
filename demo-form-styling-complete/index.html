@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Styling Forms</title>
+
+    <meta name="description" content="Header with accessibile Search Bar">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="upper-header">
+                <h1 class="sr-only">Search Co.</h1>
+                <img src="img/logo.png" alt="Search Co. Logo">
+
+                <!-- Menu Icon -->
+                <div class="menu-toggle">
+                    <svg viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M227.5 0a227.5 227.5 0 1 0 0 455 227.5 227.5 0 0 0 0-455zm-110 262.5a35 35 0 1 1 0-70 35 35 0 0 1 0 70zm110 0a35 35 0 1 1 0-70 35 35 0 0 1 0 70zm110 0a35 35 0 1 1 0-70 35 35 0 0 1 0 70z"/></svg>
+                    <p>menu</p>
+                </div>
+            </div> <!-- end of .upper-header -->
+
+            <form action="" method="GET" role="search">
+                <label for="search-bar" class="sr-only">Search</label>
+                <input id="search-bar" name="search-bar" type="search" placeholder="Search">
+
+                <div class="magnifying-glass">
+                    <input type="submit" name="search" value="&emsp;">
+                </div>
+            </form>
+
+        </div> <!-- end of .container -->
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="login">
+                <h2>Sign In</h2>
+                <p>Already a member? Log in using the form down below.</p>
+
+                <form action="" method="POST">
+                    <div>
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="login-email" required>
+                    </div>
+                    <div>
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="login-password" required>
+                    </div>
+                    <div>
+                        <input type="submit" value="Sign In" name="login">
+                    </div>
+                </form>
+            </div> <!-- end of .login -->
+
+            <div class="sign-up">
+               <h2>Sign Up</h2>
+               <p>All of your questions, answered in one place.</p>
+               <p>Sign up now to discover why Search Co. has been the number one internet search engine in over 160+ countries since 1998.</p>
+               <a href="#">Sign Up Now</a>
+            </div> <!-- end of .sign-up -->
+        </div> <!-- end of .container -->
+    </main>
+</body>
+</html>
