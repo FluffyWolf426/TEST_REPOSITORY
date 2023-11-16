@@ -101,7 +101,7 @@ input[type="submit"]:hover {
     }
 
     fieldset div {
-        flex: 0 1 48%;
+        flex: 0 1 40%;
     }
 
     h3 { 
