@@ -1,0 +1,146 @@
+/* developer styles go here */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem; /**18px**/
+    background-color: #08151f;
+}
+
+/** utility classes **/
+.inner-container {
+    max-width: 70rem;
+    margin: auto;
+}
+
+.sr-only {
+    position: absolute;
+    visibility: hidden;
+    top: -9999px;
+    left: -9999px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/** header **/
+ header {
+    background: rgb(48,82,111); /**fallback**/
+    background: linear-gradient(
+        0deg, rgba(48,82,111,1) 
+        0%,rgba(19,43,63,1));
+ }
+
+ .logo {
+    width: 4rem;
+    padding: 0.5rem;
+ }
+
+ ul.menu a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem;
+    display: inline-block;
+    border-left: 0.25rem solid rgba(0,0,0,0);
+ }
+
+ ul.menu li a span { display: none; }
+
+ ul.menu .dropdown a {
+    padding-left: 3rem;
+ }
+
+ /** hover state **/
+ul.menu a:hover {
+    border-left: 0.25rem solid #f7d874;
+}
+ul.menu a:focus {
+    color: #f7d874; 
+}
+
+
+/** larger view **/
+
+@media screen and (min-width: 64rem) {
+    /** utlility class **/
+    .flex-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+   
+    /** target only the first tier li's **/
+    ul.menu > li {
+        padding-left: 3rem;
+        position: relative;
+    }
+
+    /** bring back dropdown arrows **/
+    ul.menu li a span  {
+        display: inline-block;
+        padding-left: 0.5rem;
+    }
+
+    /** shift your dropdown items back a bit **/
+    ul.menu .dropdown a {
+        padding-left: 1rem;
+    }
+
+    /** before hiding the dropdown menus, style them first **/
+    ul.dropdown {
+        background: #30526f;
+        /** remove dropdown from document flow **/
+        position: absolute;
+        left: 3rem;
+        visibility: hidden;
+    }
+
+    /** bring back dropdowns on a hover state **/
+    ul.menu > li:hover ul.dropdown,
+    ul.menu > li ul.dropdown:hover,
+    /** focus states - keyboard accessibility**/
+    ul.menu > li:focus-within ul.dropdown,
+    ul.menu > li ul.dropdown focus{
+        visibility: visible;
+        transition: all 0.3s ease;
+    }
+
+    /** remove initial hover state **/
+    ul.menu a,
+    ul.menu a:hover {
+        transition: all 0.3s ease;
+    }
+
+    ul.menu a:hover {
+        color: #f7d874;
+    }
+
+ /* ***************************************
+ 
+                My stuff
+ 
+ ********************************************/
+
+    .second-dropdown {
+        position: absolute;
+        visibility: hidden;
+        background: #30526f;
+        left: 3rem;
+        top:0;
+        left:220px
+    }
+
+   
+    .second-list   li:hover ul.second-dropdown
+    /** focus states - keyboard accessibility**/
+    .second-list  li:focus-within ul.second-dropdown,
+    .second-list  ul.second-dropdown a:focus{
+        visibility: visible;
+        transition: all 0.3s ease;
+    }
+
+    .second-dropdown {
+
+    }
+}

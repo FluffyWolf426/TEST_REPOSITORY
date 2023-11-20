@@ -1,0 +1,194 @@
+/** 
+-- colours 
+seafoam green : #3DB39E;
+white: #fff;
+charcoal: #333;
+light-charcoal: #666; | strike line for price 
+orange: ##dc6419;
+beige: #f4f0e8;
+
+-- typography 
+base-font-family: Verdana, Geneva, Tahoma, sans-serif;
+headings: 'Signika', sans-serif;
+**/
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+}
+
+/** utility classes **/
+.inner-container {
+    margin: 0 auto;
+    max-width: 80rem; /**1280px**/
+}
+
+/** header **/
+header {
+    background: #3DB39E;
+    color: white; 
+    font-family: 'Signika', sans-serif;
+    padding: 1rem;
+    /** vendor prefixes help make experimental properities and features compatible with browser where support may be iffy **/
+    position: -webkit-sticky;
+    position: sticky;
+    /** without a helper property, the sticky position won't work **/
+    top: 0;
+    z-index: 100; 
+}
+
+header .inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header svg {
+    width: 3rem;
+    margin-right: 1rem;
+    fill: #fff;
+}
+
+/** proper way to target svg paths **/
+header svg path { fill: white; }
+
+/** main layout **/
+
+main {
+    padding: 1rem;
+}
+
+/** the effect of staggered text **/
+h2 {
+    font-family: 'Signika', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    text-align: right;
+    margin: 3rem auto;
+    max-width: 22rem; /**352px**/
+}
+h2 span {
+    display: block;
+    text-align: left;
+}
+
+.card {
+    background: #f4f0e8;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    /** while this won't move the container, it will allow us to absolutely position the elements inside of it, relative to where the this <div> is in the layout **/
+    position: relative;
+}
+
+.card img:first-child {
+    width: 100%;
+}
+
+/** position your sales icon and new icon **/
+.card .sale,
+.card .new {
+    width: 4rem;
+    position: absolute;
+}
+
+.card .sale {
+    top: 2rem;
+    right: 2rem;
+}
+
+.card .new {
+    top: 2rem;
+    left: 2rem;
+}
+
+.card .card-desc h3 {
+    line-height: 2;
+    margin-top: 1rem;
+}
+
+.card .card-desc p {
+    margin: 1rem 0;
+}
+
+.card .card-desc .price {
+    color: #dc6419;
+    font-weight: 600;
+}
+.card .card-desc .price span {
+    color: #666;
+    text-decoration: line-through;
+}
+
+.card a {
+    background: #3DB39E;
+    border-radius: 0.4rem;
+    color: #fff;
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 80%;
+    margin: auto;
+}
+.card a:hover,
+.card a:focus {
+    background: #dc6419;
+    cursor: pointer;
+}
+
+/** chat icon **/
+.chat {
+    background: #fff;
+    border-radius: 50%;
+    border: 2px dotted #3DB39E;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    /** this will put the chat icon in the lower right-hand part of the viewport, no matter how screen is sized **/
+    position: fixed;
+   bottom: 1rem;
+   right: 1rem;
+   /** optional to add in z-index **/
+}
+
+.chat img {
+    width: 3rem;
+}
+
+.chat p {
+    font-size: 0.6rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 1070px) {
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /**we want three flex items with a gutter between each of them **/
+    .card {
+        width: calc(100% / 3 - 1rem);
+    }
+}
+
+
+@media screen and (min-width: 1265px) {
+    /** position the buttons to stay on the bottom of the card **/
+
+    .card-desc {
+        position: relative;
+        min-height: 350px;
+    }
+   
+    .card a {
+        position: absolute;
+        bottom: 0rem;
+        left: 0;
+        right: 0;
+    }
+}

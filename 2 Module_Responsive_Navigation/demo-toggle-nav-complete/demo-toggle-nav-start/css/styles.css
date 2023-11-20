@@ -1,0 +1,126 @@
+/* Colour Palette
+    off-black : #002438;
+    navy      : #003049;
+    orange    : #F77F00;
+    yellow    : #FCBF49;
+*/
+
+body {
+    font-family: sans-serif;
+    background-color: lightcyan;
+}
+
+/* Helper Classes */
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner-container {
+    max-width: 64rem;
+    margin: auto;
+}
+
+/** header and nav **/
+/** Step 1: Style the default/showing state. Starting with the mobile view. Style the layout and links for how they will look when they are visible **/
+header {
+    background-color: #003049;
+    color: #fcbf49;
+    padding: 1rem;
+}
+
+header a {
+    color: #fcbf49;
+    text-decoration: none;
+    /** allows for a clickable area to take up the full width and height of the li **/
+    display: block;
+}
+
+h1 a:hover { color: #f77f00; }
+
+.menu a:hover,
+.menu a:active {
+    background-color: #002438;
+}
+
+/** style the toggle/hamburger btn **/
+.toggle-btn {
+    /** hiding the default button styling **/
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.toggle-btn:hover { cursor: pointer; }
+
+.toggle-btn svg rect {
+    fill: #fcbf49;
+}
+.toggle-btn:hover svg rect {
+    fill: #f77f00;
+}
+
+.menu li {
+    /** the extra space from the additional line height, makes this a larger area and vertically centers the text **/
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+/**Step 2: Now let's hide the menu. Once it's hidden this the default loading stage. If using display: none; - that property cannot be transitioned (i.e you'll have a clunky menu). **/
+
+header nav {
+    /**style t his for how it will look overlapping the main content **/
+    /** this element does not have a parent container that is positioned relative, therefore it's positioned relationship is to the browser screen **/
+    position: absolute;
+    top: 5.06rem;
+    left: 0;
+    /** once positioned absolute, this disappears from the document flow and it doesn't leave a space where it initially was. This does not have a bkgd colour, because it's not part of the header content. **/
+    background-color: #003049;
+    width: 100vw;
+    /** hide the menu **/
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+/**Step 3: Create a special class that will show the menu. This class name only exists in the CSS file for now. Next the javascript will add this class to the nav element for us. Let's go and do that in the main.js file.**/
+
+.show-nav {
+    max-height: 100vh;
+}
+
+/** Step 4: Add a media query and show the nav by default (hide the toggle) button and style it as a horizontal nav **/
+
+@media screen and (min-width: 37.5rem) {
+    .toggle-btn { display: none; }
+
+    /** we want to see the nav by default, so give it a height back **/
+    header nav {
+        /** reset the postion value and the width **/
+        /**position:static; is how elements are normally place - unsetting the position: absolute value **/
+        position: static;
+        width: auto;
+        max-height: unset;
+        overflow: visible;
+    }
+    
+    .menu,
+    header .inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu li {
+        margin-left: 0.5rem;
+    }
+
+    .menu li a { padding: 0 0.5rem; }
+
+    .menu a:hover,
+    .menu a:active {
+        background-color: unset;
+        color: #f77f00;
+    }
+}
