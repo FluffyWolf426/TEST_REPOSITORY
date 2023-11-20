@@ -82,7 +82,7 @@ section:first-of-type p:first-of-type {
     display: flex;
     flex-wrap: nowrap;
     margin-bottom: 5rem;
-    overflow-x: scroll;
+    overflow-x:scroll;
 }
 
 .card {
